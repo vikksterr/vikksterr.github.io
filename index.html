@@ -1,7 +1,66 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+        }
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: "Verdana";
+            font-weight: bold;
+            height: 95%;
+            width: 95%;
+        }
+
+        label,
+        input {
+            font-size: 16px;
+            margin: 10px;
+        }
+
+        input {
+            padding: 6px;
+            width: 200px;
+            border-radius: 5px;
+            border: solid 1px rgb(138, 138, 138);
+        }
+
+        input:hover {
+            background-color: rgb(232, 232, 232);
+        }
+
+        input::-webkit-inner-spin-button,
+        input::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+        }
+    </style>
+</head>
+
 <body>
-<h1>Hello</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <div>
+        <label for="lev">BGN:</label>
+        <input type="number" id="lev" placeholder="0">
+        <label for="euro">EUR:</label>
+        <input type="number" id="euro" placeholder="0">
+    </div>
 </body>
+<script>
+    document.getElementById("lev").addEventListener("input", function () {
+        console.log("lev")
+        document.getElementById("euro").value = (document.getElementById("lev").value / 1.95583).toFixed(2);
+    })
+    document.getElementById("euro").addEventListener("input", function () {
+        console.log("euro")
+        document.getElementById("lev").value = (document.getElementById("euro").value * 1.95583).toFixed(2)
+    })
+
+</script>
+
 </html>
