@@ -7,8 +7,20 @@
             height: 100vh;
             width: 100vw;
             margin: 0;
+            background: repeating-linear-gradient(45deg,
+                    /* Direction of the diagonal */
+                    rgb(242, 242, 250) 0px,
+                    /* Darker line start */
+                    rgb(242, 242, 250) 10px,
+                    /* Darker line end */
+                    rgb(250, 250, 250) 10px,
+                    /* Lighter line start */
+                    rgb(250, 250, 250) 20px
+                    /* Lighter line end (then repeat) */
+                );
         }
-        div {
+
+        #outer {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -19,10 +31,29 @@
             width: 95%;
         }
 
+        #inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 300px;
+            width: 450px;
+            background-color: rgb(250, 249, 249);
+            border-radius: 40px;
+            box-shadow: 0 0px 20px 8px;
+            color: #727bcec2;
+            transition: box-shadow 0.5s ease;
+        }
+
+        #inner:hover {
+            box-shadow: 0 0px 40px 16px;
+        }
+
         label,
         input {
             font-size: 16px;
             margin: 10px;
+            color: black;
         }
 
         input {
@@ -38,6 +69,7 @@
             background-color: rgb(232, 232, 232);
             border-color: black;
         }
+
         label:hover {
             font-weight: bold;
         }
@@ -50,11 +82,13 @@
 </head>
 
 <body>
-    <div>
-        <label for="lev">BGN:</label>
-        <input type="number" id="lev" placeholder="0">
-        <label for="euro">EUR:</label>
-        <input type="number" id="euro" placeholder="0">
+    <div id="outer">
+        <div id="inner">
+            <label for="lev">BGN:</label>
+            <input type="number" id="lev" placeholder="0">
+            <label for="euro">EUR:</label>
+            <input type="number" id="euro" placeholder="0">
+        </div>
     </div>
 </body>
 <script>
